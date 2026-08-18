@@ -8,6 +8,7 @@ The application source, private implementation history, production scripts, data
 
 - [Alphabet V1 roadmap](docs/product/alphabet-v1-roadmap.md)
 - [Aleph Bet architecture index](docs/architecture/README.md)
+- [React Native to KMP architecture guide](docs/architecture/react-native-to-kmp-architecture.md)
 - [Architecture answers and decision queue](docs/architecture/answers.md)
 - [Earlier broader V1 product spec](docs/product/v1-product-spec.md)
 
