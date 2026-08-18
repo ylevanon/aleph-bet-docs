@@ -3,7 +3,7 @@
 ## Current direction
 
 - [Alphabet V1 roadmap](product/alphabet-v1-roadmap.md) — minimum learning promise, features, screens, state, data concepts, and milestones.
-- [Teaching-first KMP architecture](architecture/kmp-project-structure.md) — source sets, feature boundaries, state flow, persistence, Koin Annotations, testing, and the learning sequence.
+- [Aleph Bet Kotlin Multiplatform architecture](architecture/kmp-project-structure.md) — the app's future package map, feature responsibilities, state and data ownership, Koin Annotations, testing strategy, and learning sequence.
 
 ## Background
 
