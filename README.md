@@ -6,6 +6,7 @@ The application source, private implementation history, production scripts, data
 
 ## Start here
 
+- [Personalized Kotlin Multiplatform course](docs/course/README.md)
 - [Alphabet V1 roadmap](docs/product/alphabet-v1-roadmap.md)
 - [Aleph Bet architecture index](docs/architecture/README.md)
 - [React Native to KMP architecture guide](docs/architecture/react-native-to-kmp-architecture.md)
