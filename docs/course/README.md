@@ -1,8 +1,8 @@
 # Build Aleph Bet V1: a personalized KMP course
 
-Status: Course map ready; 9 of 59 full lesson pages published; lesson 00.01 passed
+Status: Module 00 passed; 9 of 59 full lesson pages published; Lesson 01.01 ready
 
-Last updated: 2026-08-18
+Last updated: 2026-08-19
 
 ## Course promise
 
@@ -34,7 +34,7 @@ Read these in order:
 6. Module 00 lessons:
    - [00.01: Baseline and course map](lessons/00-01-baseline-and-course-map.md)
    - [00.02: Repository, Gradle, packages, and source sets](lessons/00-02-repository-build-packages-source-sets.md)
-   - [00.03: The build-run-debug loop](lessons/00-03-build-run-debug-loop.md)
+   - [00.03: The fast shared-UI development loop](lessons/00-03-build-run-debug-loop.md)
 7. Module 01 lessons:
    - [01.01: Values, variables, types, and expressions](lessons/01-01-values-variables-types-expressions.md)
    - [01.02: Functions, named arguments, and null safety](lessons/01-02-functions-named-arguments-null-safety.md)
@@ -55,7 +55,7 @@ That estimate is intentionally longer than an eight-hour video. Video runtime ex
 
 | Module | Subject | Product milestone | Status |
 |---|---|---|---|
-| 00 | Orientation and toolchain | Shared starter runs; baseline recorded | In progress — 1/3 passed |
+| 00 | Orientation and toolchain | Native apps run; Desktop Hot Reload established | Passed — 3/3 |
 | 01 | Kotlin through the alphabet domain | Valid three-letter domain model and tests | Full lesson pack ready |
 | 02 | Compose foundations | Hard-coded accessible three-letter explorer | Not started |
 | 03 | KMP boundaries and resources | Real resources load on Android and iOS | Not started |

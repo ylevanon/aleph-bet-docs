@@ -2,7 +2,7 @@
 
 Status: Proposed sequence; adapts to learner evidence
 
-Last updated: 2026-08-18
+Last updated: 2026-08-19
 
 ## How to read the syllabus
 
@@ -17,13 +17,13 @@ Testing is integrated throughout rather than saved for a final testing module.
 
 ## Module 00 — Orientation and toolchain
 
-Product gate: the project can be built, run, inspected, and debugged on Android and iOS; the learner's baseline is recorded.
+Product gate: the project runs on Android and iOS, shared UI has a fast desktop Hot Reload loop, and the learner's baseline is recorded.
 
 | ID | Lesson | Learning outcome | Product artifact |
 |---|---|---|---|
 | 00.01 | Baseline and course map | Explain current strengths, unknowns, and the product-to-code roadmap | Diagnostic record and learning contract |
 | 00.02 | Repository, Gradle, modules, packages, and source sets | Distinguish filesystem folders, Kotlin packages, source sets, Gradle modules, and the Xcode host | Annotated project map |
-| 00.03 | The build-run-debug loop | Run both targets, read a compiler error, use logs and debugger basics | Shared starter verified on Android and iOS |
+| 00.03 | The fast shared-UI development loop | Trace both native hosts, distinguish previews from real targets, and use Desktop Hot Reload | Shared starter verified on Android/iOS plus a desktop development host |
 
 Checkpoint questions:
 

@@ -1,6 +1,6 @@
 # Assessment and progress
 
-Status: Lesson 00.02 in progress
+Status: Module 00 passed; Lesson 01.01 ready
 
 Last updated: 2026-08-19
 
@@ -55,7 +55,7 @@ Baseline levels are not assigned from language trivia or self-reported framework
 | Collections and functional transformations | TBD | 4 | Alphabet mapping and queue building |
 | Compose mental model | TBD | 4 | UI implementation and recomposition diagnosis |
 | Compose state and effects | 2 | 5 | Session UI and lifecycle debugging |
-| KMP source sets and boundaries | TBD | 5 | Platform placement challenge and audio integration |
+| KMP source sets and boundaries | 3 | 5 | Platform placement challenge, desktop target explanation, and audio integration |
 | Coroutines and Flow | TBD | 4 | ViewModel and Room flow integration |
 | ViewModels and UDF | 2 | 5 | Lesson/practice presentation and teach-back |
 | Architecture and package ownership | 2 | 5 | Placement exercises and final defense |
@@ -70,7 +70,7 @@ Baseline levels are not assigned from language trivia or self-reported framework
 
 | Module | Status | Passed lessons | Notes |
 |---|---|---:|---|
-| 00 Orientation and toolchain | In progress | 1/3 | KMP scaffold integrated; project-map work continues |
+| 00 Orientation and toolchain | Passed | 3/3 | Native hosts traced; Desktop Hot Reload established |
 | 01 Kotlin through the domain | Not started | 0/6 | — |
 | 02 Compose foundations | Not started | 0/6 | — |
 | 03 KMP boundaries and resources | Not started | 0/4 | — |
@@ -83,29 +83,31 @@ Baseline levels are not assigned from language trivia or self-reported framework
 | 10 Complete alphabet and quality | Not started | 0/5 | — |
 | 11 Release and defense | Not started | 0/4 | — |
 
-Current lesson: `00.02 — Repository, build, packages, and source sets`
+Current lesson: `01.01 — Values, variables, types, and expressions`
 
 Published inventory: 9/59 full lesson pages. The remainder of Module 00 and all of Module 01 are ready, so lesson publication is no longer blocking the current or next module.
 
 ### Current lesson record
 
 ```text
-Lesson ID: 00.02
-Status: In progress
+Lesson ID: 00.03
+Status: Passed
 Date started: 2026-08-19
-Product artifact: Current KMP scaffold plus evidence-backed module/source-set map
-Checks run: Gradle sync succeeded; ./gradlew projects --stacktrace succeeded from the permanent repository
-Evidence: Correctly classified common, Android-only, Swift-host, and shared-test placement; distinguished iosApp from iosMain; generated the official starter
-Debugging evidence: Used Gradle output to disprove false IntelliJ unresolved-libs errors caused by the /tmp and /private/tmp path alias
-Private checkpoint commit: 6ec123a
+Date passed: 2026-08-19
+Product artifact: Android and iOS starter baselines plus a development-only desktop Compose host with Hot Reload
+Checks run: Android and iOS launched; :shared:compileKotlinDesktop succeeded; :shared:hotRunDesktop configured successfully
+Evidence: Traced both native hosts into shared App(); distinguished previews, desktop Hot Reload, and real target runs; explained desktop as another compilation of shared UI
+Debugging evidence: Identified stale native processes after source edits, challenged the slow loop, found the missing KMP Hot Reload path, and used the desktop target to correct the workflow
+Application checkpoint: Local only; app source was not pushed because the configured GitHub remote remained public
 ```
 
-Most recent passed lesson: `00.01 — Baseline and course map` on 2026-08-18.
+Most recent passed lesson: `00.03 — The fast shared-UI development loop` on 2026-08-19.
 
 Current task-based evidence:
 
-- KMP source sets and boundaries: level 2 — distinguishes packages, modules, source sets, and native hosts; correctly places common domain, Android implementation, Swift entry-point, and shared-test code.
+- KMP source sets and boundaries: level 3 — distinguishes packages, modules, source sets, and native hosts; correctly places common domain, Android implementation, Swift entry-point, shared-test, and desktop-development code.
 - Build/debugging: level 2 — separates an IDE analysis diagnostic from Gradle configuration evidence and uses the wrapper to identify the actual build result.
+- Development loop: level 3 — traces Android, iOS, and desktop hosts into shared Compose; distinguishes preview tooling from a real JVM host and from packaged phone targets.
 - ViewModels and unidirectional flow: level 2 — explains UI rendering/events and a longer-lived state coordinator.
 - Architecture and ownership: level 2 — separates ephemeral UI, durable learner state, and UI-independent learning decisions.
 - Room and relational modeling: level 2 — identifies individual attempts as durable facts and a future practice queue as a derived decision.
@@ -134,6 +136,8 @@ Current coaching calibration:
 - Use React Native comparisons to explain a delta, not to test dormant framework muscle memory.
 - Treat agentic engineering as established background, not curriculum; protect direct Kotlin implementation time.
 - Use teach-backs selectively for technical mental models; accept evidence already present in the conversation and avoid redundant meta-assignments.
+- Keep lessons product-first. Introduce Gradle and build configuration only when a dependency, target, or observed failure creates a concrete reason.
+- Use Desktop Hot Reload for the ordinary shared-UI loop and verify Android/iOS at meaningful checkpoints instead of after every edit.
 
 Current learning priorities:
 
