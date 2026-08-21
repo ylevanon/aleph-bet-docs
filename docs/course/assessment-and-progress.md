@@ -1,6 +1,6 @@
 # Assessment and progress
 
-Status: Lesson 01.03 passed; Lesson 01.04 ready
+Status: Lesson 02.01 passed; Lesson 02.02 ready
 
 Last updated: 2026-08-19
 
@@ -71,8 +71,8 @@ Baseline levels are not assigned from language trivia or self-reported framework
 | Module | Status | Passed lessons | Notes |
 |---|---|---:|---|
 | 00 Orientation and toolchain | Passed | 3/3 | Native hosts traced; Desktop Hot Reload established |
-| 01 Kotlin through the domain | In progress | 3/6 | Letter data/value types implemented; enum and sealed-family choices explained |
-| 02 Compose foundations | Not started | 0/6 | — |
+| 01 Kotlin through the domain | In progress | 4/6 | Collection foundations demonstrated; repository/mapping and test checkpoint deferred to authentic product boundaries |
+| 02 Compose foundations | In progress | 1/6 | Feature-owned LetterCard and state-driven visibility implemented |
 | 03 KMP boundaries and resources | Not started | 0/4 | — |
 | 04 Alphabet vertical slice | Not started | 0/5 | — |
 | 05 Session engine | Not started | 0/6 | — |
@@ -83,30 +83,32 @@ Baseline levels are not assigned from language trivia or self-reported framework
 | 10 Complete alphabet and quality | Not started | 0/5 | — |
 | 11 Release and defense | Not started | 0/4 | — |
 
-Current lesson: `01.04 — Collections and higher-order functions`
+Current lesson: `02.02 — Layout, Modifier, theme, and modifier order`
 
-Published inventory: 9/59 full lesson pages. The remainder of Module 00 and all of Module 01 are ready, so lesson publication is no longer blocking the current or next module.
+Published inventory: 10/59 full lesson pages. Lessons 01.05–01.06 remain published reference material and are deferred until their product boundaries exist.
 
 ### Current lesson record
 
 ```text
-Lesson ID: 01.03
+Lesson ID: 02.01
 Status: Passed
 Date started: 2026-08-20
 Date passed: 2026-08-20
-Product artifact: Shared starter represents Aleph and Bet as Letter data values with typed LetterId identity and read-only sound lists
-Checks run: Desktop Kotlin compilation succeeded after model and call-site changes
-Evidence: Implemented data/value classes, explained copy behavior, distinguished object/class payloads, and selected enum versus sealed families from product state shape
-Debugging evidence: Corrected mutable-list default and challenged an underspecified stateless Correct case when UI behavior required per-answer identity
+Product artifact: Feature-owned LetterCard renders Aleph, Bet, and Gimel; observable Compose state reveals and hides real letter content
+Checks run: Desktop Hot Reload verified the interaction; desktop Kotlin compilation succeeded
+Evidence: Extracted a composable with explicit domain input, explained state-driven recomposition, and distinguished remembered state from recreated ordinary locals
+Debugging evidence: Removed retired template UI/imports and kept derived labels/content out of duplicated mutable state
 Application checkpoint: Local only; app source was not pushed because the configured GitHub remote remained public
 ```
 
-Most recent passed lesson: `01.03 — Data classes, value classes, enums, and sealed types` on 2026-08-20.
+Most recent passed lesson: `02.01 — Composables and recomposition` on 2026-08-20.
 
 Current task-based evidence:
 
 - Functions and null safety: level 3 — extracts typed pure functions, calls with named arguments, uses a nullable default, and safely handles absent/empty content.
 - Kotlin type modeling: level 3 — implements a domain data class and typed value-class identity, reasons about immutable copying, and chooses enum/sealed/object/class shapes from required product state.
+- Collections: level 3 — uses an ordered read-only letter list, sorting, iteration, and typed lookup reasoning; advanced transformations are deferred for retrieval in real features.
+- Compose components and recomposition: level 3 — extracts feature-owned UI with explicit inputs and explains how observable remembered state drives recomposition while ordinary locals are recreated.
 - Kotlin declarations and expressions: level 3 — implements read-only local values, type inference, interpolation, and state-derived if expressions in the running application.
 - Recomposition reasoning: level 2 — explains that a derived val is initialized again from current observable state rather than reassigned.
 - KMP source sets and boundaries: level 3 — distinguishes packages, modules, source sets, and native hosts; correctly places common domain, Android implementation, Swift entry-point, shared-test, and desktop-development code.
