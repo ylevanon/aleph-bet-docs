@@ -37,7 +37,7 @@ Product gate: three letter forms are represented by valid domain models with com
 
 | ID | Lesson | Learning outcome | Product artifact |
 |---|---|---|---|
-| 01.01 | Values, variables, types, and expressions | Translate TypeScript instincts into Kotlin declarations and expression-oriented code | First `Letter` examples in a test lab |
+| 01.01 | Values, variables, types, and expressions | Use scoped declarations, inference, interpolation, and value-producing `if` expressions | Visible alphabet progress and state-derived button labels |
 | 01.02 | Functions, named arguments, and null safety | Model optional content without unsafe null assertions | Valid sound and alternate-form helpers |
 | 01.03 | Data classes, value classes, enums, and sealed types | Choose a Kotlin type based on valid states rather than habit | `LetterId`, `LetterForm`, and sound variants |
 | 01.04 | Collections and higher-order functions | Use `map`, `filter`, `associate`, grouping, and lambdas idiomatically | Alphabet lookup and final-form transformations |

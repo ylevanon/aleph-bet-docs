@@ -1,6 +1,6 @@
 # Assessment and progress
 
-Status: Module 00 passed; Lesson 01.01 ready
+Status: Lesson 01.01 passed; Lesson 01.02 ready
 
 Last updated: 2026-08-19
 
@@ -50,10 +50,10 @@ Baseline levels are not assigned from language trivia or self-reported framework
 
 | Skill | Baseline | Target | Evidence source |
 |---|---:|---:|---|
-| Kotlin syntax and null safety | TBD | 4 | Domain and independent variation |
+| Kotlin syntax and null safety | 3 | 4 | Visible value/expression implementation and later domain variation |
 | Kotlin type modeling | TBD | 5 | Session model and architecture defense |
 | Collections and functional transformations | TBD | 4 | Alphabet mapping and queue building |
-| Compose mental model | TBD | 4 | UI implementation and recomposition diagnosis |
+| Compose mental model | 2 | 4 | UI implementation and recomposition diagnosis |
 | Compose state and effects | 2 | 5 | Session UI and lifecycle debugging |
 | KMP source sets and boundaries | 3 | 5 | Platform placement challenge, desktop target explanation, and audio integration |
 | Coroutines and Flow | TBD | 4 | ViewModel and Room flow integration |
@@ -71,7 +71,7 @@ Baseline levels are not assigned from language trivia or self-reported framework
 | Module | Status | Passed lessons | Notes |
 |---|---|---:|---|
 | 00 Orientation and toolchain | Passed | 3/3 | Native hosts traced; Desktop Hot Reload established |
-| 01 Kotlin through the domain | Not started | 0/6 | — |
+| 01 Kotlin through the domain | In progress | 1/6 | Values, inference, and derived expressions implemented visibly |
 | 02 Compose foundations | Not started | 0/6 | — |
 | 03 KMP boundaries and resources | Not started | 0/4 | — |
 | 04 Alphabet vertical slice | Not started | 0/5 | — |
@@ -83,28 +83,30 @@ Baseline levels are not assigned from language trivia or self-reported framework
 | 10 Complete alphabet and quality | Not started | 0/5 | — |
 | 11 Release and defense | Not started | 0/4 | — |
 
-Current lesson: `01.01 — Values, variables, types, and expressions`
+Current lesson: `01.02 — Functions, named arguments, and null safety`
 
 Published inventory: 9/59 full lesson pages. The remainder of Module 00 and all of Module 01 are ready, so lesson publication is no longer blocking the current or next module.
 
 ### Current lesson record
 
 ```text
-Lesson ID: 00.03
+Lesson ID: 01.01
 Status: Passed
 Date started: 2026-08-19
-Date passed: 2026-08-19
-Product artifact: Android and iOS starter baselines plus a development-only desktop Compose host with Hot Reload
-Checks run: Android and iOS launched; :shared:compileKotlinDesktop succeeded; :shared:hotRunDesktop configured successfully
-Evidence: Traced both native hosts into shared App(); distinguished previews, desktop Hot Reload, and real target runs; explained desktop as another compilation of shared UI
-Debugging evidence: Identified stale native processes after source edits, challenged the slow loop, found the missing KMP Hot Reload path, and used the desktop target to correct the workflow
+Date passed: 2026-08-20
+Product artifact: Shared starter displays named alphabet counts, derived progress text, and a state-derived button label
+Checks run: Desktop Hot Reload rendered each change; desktop Kotlin compilation succeeded after mechanical cleanup
+Evidence: Correctly distinguished val/var and inferred String/Boolean; implemented local typed values, interpolation, and two value-producing if expressions
+Debugging evidence: Revised top-level mutable declarations into scoped read-only values and explained why a derived val changes visibly across recompositions without reassignment
 Application checkpoint: Local only; app source was not pushed because the configured GitHub remote remained public
 ```
 
-Most recent passed lesson: `00.03 — The fast shared-UI development loop` on 2026-08-19.
+Most recent passed lesson: `01.01 — Values, variables, types, and expressions` on 2026-08-20.
 
 Current task-based evidence:
 
+- Kotlin declarations and expressions: level 3 — implements read-only local values, type inference, interpolation, and state-derived if expressions in the running application.
+- Recomposition reasoning: level 2 — explains that a derived val is initialized again from current observable state rather than reassigned.
 - KMP source sets and boundaries: level 3 — distinguishes packages, modules, source sets, and native hosts; correctly places common domain, Android implementation, Swift entry-point, shared-test, and desktop-development code.
 - Build/debugging: level 2 — separates an IDE analysis diagnostic from Gradle configuration evidence and uses the wrapper to identify the actual build result.
 - Development loop: level 3 — traces Android, iOS, and desktop hosts into shared Compose; distinguishes preview tooling from a real JVM host and from packaged phone targets.
