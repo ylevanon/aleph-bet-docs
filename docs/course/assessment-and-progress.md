@@ -85,7 +85,7 @@ Baseline levels are not assigned from language trivia or self-reported framework
 
 Current lesson: `02.01 — Composables and recomposition`
 
-Published inventory: 15/59 full lesson pages. The complete Module 02 pack is published before further live instruction. Lessons 01.05–01.06 remain published reference material and are deferred until their product boundaries exist.
+Published inventory: 24/59 full lesson pages. Complete packs for Modules 02–04 are published so product implementation can continue without live lesson improvisation. Lessons 01.05–01.06 remain published reference material and their repository/mapping/testing outcomes are retrieved in Module 04 when real bundled content creates those boundaries.
 
 ### Current lesson record
 

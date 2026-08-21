@@ -1,6 +1,6 @@
 # Build Aleph Bet V1: a personalized KMP course
 
-Status: Lesson 02.01 in progress; 15 of 59 full lesson pages published; complete Module 02 pack ready
+Status: Lesson 02.01 in progress; 24 of 59 full lesson pages published; complete Modules 02–04 ready
 
 Last updated: 2026-08-20
 
@@ -49,6 +49,17 @@ Read these in order:
    - [02.04: Remembered state, saveable state, and effects](lessons/02-04-remember-state-saveable-effects.md)
    - [02.05: Lazy grids, stable keys, RTL, and semantics](lessons/02-05-lazy-grids-keys-rtl-semantics.md)
    - [02.06: Compose UI checkpoint](lessons/02-06-compose-ui-checkpoint.md)
+9. Module 03 lessons:
+   - [03.01: Targets, source sets, and dependency reach](lessons/03-01-targets-source-sets-dependencies.md)
+   - [03.02: Compose resources, fonts, JSON, and audio assets](lessons/03-02-compose-resources-fonts-json-audio.md)
+   - [03.03: Common interfaces versus expect/actual](lessons/03-03-interfaces-expect-actual.md)
+   - [03.04: Cross-platform resource checkpoint](lessons/03-04-cross-platform-resource-checkpoint.md)
+10. Module 04 lessons:
+   - [04.01: Content schema, DTOs, and domain invariants](lessons/04-01-content-schema-dtos-domain-invariants.md)
+   - [04.02: Serialization, validation, and mapping](lessons/04-02-serialization-validation-mapping.md)
+   - [04.03: Repository contracts, fakes, and implementations](lessons/04-03-repository-contracts-fakes-implementations.md)
+   - [04.04: Connect bundled content to presentation](lessons/04-04-connect-content-to-presentation.md)
+   - [04.05: Typed letter detail and feature checkpoint](lessons/04-05-typed-letter-detail-checkpoint.md)
 
 Supporting product and technical decisions remain in the [product roadmap](../product/alphabet-v1-roadmap.md) and [architecture index](../architecture/README.md).
 
