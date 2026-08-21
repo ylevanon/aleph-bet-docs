@@ -1,6 +1,6 @@
 # Assessment and progress
 
-Status: Lesson 01.02 passed; Lesson 01.03 ready
+Status: Lesson 01.03 passed; Lesson 01.04 ready
 
 Last updated: 2026-08-19
 
@@ -51,7 +51,7 @@ Baseline levels are not assigned from language trivia or self-reported framework
 | Skill | Baseline | Target | Evidence source |
 |---|---:|---:|---|
 | Kotlin syntax and null safety | 3 | 4 | Visible value/expression implementation and later domain variation |
-| Kotlin type modeling | TBD | 5 | Session model and architecture defense |
+| Kotlin type modeling | 3 | 5 | Letter/LetterId implementation, state-family reasoning, and later architecture defense |
 | Collections and functional transformations | TBD | 4 | Alphabet mapping and queue building |
 | Compose mental model | 2 | 4 | UI implementation and recomposition diagnosis |
 | Compose state and effects | 2 | 5 | Session UI and lifecycle debugging |
@@ -71,7 +71,7 @@ Baseline levels are not assigned from language trivia or self-reported framework
 | Module | Status | Passed lessons | Notes |
 |---|---|---:|---|
 | 00 Orientation and toolchain | Passed | 3/3 | Native hosts traced; Desktop Hot Reload established |
-| 01 Kotlin through the domain | In progress | 2/6 | Visible values, pure formatters, named arguments, and nullable content implemented |
+| 01 Kotlin through the domain | In progress | 3/6 | Letter data/value types implemented; enum and sealed-family choices explained |
 | 02 Compose foundations | Not started | 0/6 | — |
 | 03 KMP boundaries and resources | Not started | 0/4 | — |
 | 04 Alphabet vertical slice | Not started | 0/5 | — |
@@ -83,29 +83,30 @@ Baseline levels are not assigned from language trivia or self-reported framework
 | 10 Complete alphabet and quality | Not started | 0/5 | — |
 | 11 Release and defense | Not started | 0/4 | — |
 
-Current lesson: `01.03 — Data classes, value classes, enums, and sealed types`
+Current lesson: `01.04 — Collections and higher-order functions`
 
 Published inventory: 9/59 full lesson pages. The remainder of Module 00 and all of Module 01 are ready, so lesson publication is no longer blocking the current or next module.
 
 ### Current lesson record
 
 ```text
-Lesson ID: 01.02
+Lesson ID: 01.03
 Status: Passed
 Date started: 2026-08-20
 Date passed: 2026-08-20
-Product artifact: Shared starter uses a pure progress formatter and renders Alef/Bet labels with optional sound content
-Checks run: Desktop Hot Reload rendered both null/present branches; desktop Kotlin compilation succeeded
-Evidence: Identified function inputs/output, extracted Compose-independent logic, used named arguments, default parameters, String?, and isNullOrEmpty without !!
-Debugging evidence: Distinguished conceptual call-site ambiguity from mechanical visibility/formatting and compared block versus expression function bodies
+Product artifact: Shared starter represents Aleph and Bet as Letter data values with typed LetterId identity and read-only sound lists
+Checks run: Desktop Kotlin compilation succeeded after model and call-site changes
+Evidence: Implemented data/value classes, explained copy behavior, distinguished object/class payloads, and selected enum versus sealed families from product state shape
+Debugging evidence: Corrected mutable-list default and challenged an underspecified stateless Correct case when UI behavior required per-answer identity
 Application checkpoint: Local only; app source was not pushed because the configured GitHub remote remained public
 ```
 
-Most recent passed lesson: `01.02 — Functions, named arguments, and null safety` on 2026-08-20.
+Most recent passed lesson: `01.03 — Data classes, value classes, enums, and sealed types` on 2026-08-20.
 
 Current task-based evidence:
 
 - Functions and null safety: level 3 — extracts typed pure functions, calls with named arguments, uses a nullable default, and safely handles absent/empty content.
+- Kotlin type modeling: level 3 — implements a domain data class and typed value-class identity, reasons about immutable copying, and chooses enum/sealed/object/class shapes from required product state.
 - Kotlin declarations and expressions: level 3 — implements read-only local values, type inference, interpolation, and state-derived if expressions in the running application.
 - Recomposition reasoning: level 2 — explains that a derived val is initialized again from current observable state rather than reassigned.
 - KMP source sets and boundaries: level 3 — distinguishes packages, modules, source sets, and native hosts; correctly places common domain, Android implementation, Swift entry-point, shared-test, and desktop-development code.
