@@ -1,6 +1,6 @@
 # Build Aleph Bet V1: a personalized KMP course
 
-Status: Lesson 01.01 passed; 9 of 59 full lesson pages published; Lesson 01.02 ready
+Status: Lesson 01.02 passed; 9 of 59 full lesson pages published; Lesson 01.03 ready
 
 Last updated: 2026-08-19
 
@@ -56,7 +56,7 @@ That estimate is intentionally longer than an eight-hour video. Video runtime ex
 | Module | Subject | Product milestone | Status |
 |---|---|---|---|
 | 00 | Orientation and toolchain | Native apps run; Desktop Hot Reload established | Passed — 3/3 |
-| 01 | Kotlin through the alphabet domain | Valid three-letter domain model and tests | In progress — 1/6 passed |
+| 01 | Kotlin through the alphabet domain | Valid three-letter domain model and tests | In progress — 2/6 passed |
 | 02 | Compose foundations | Hard-coded accessible three-letter explorer | Not started |
 | 03 | KMP boundaries and resources | Real resources load on Android and iOS | Not started |
 | 04 | Alphabet vertical slice | Bundled repository, explorer, and letter detail | Not started |

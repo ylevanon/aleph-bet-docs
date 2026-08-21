@@ -1,6 +1,6 @@
 # Assessment and progress
 
-Status: Lesson 01.01 passed; Lesson 01.02 ready
+Status: Lesson 01.02 passed; Lesson 01.03 ready
 
 Last updated: 2026-08-19
 
@@ -71,7 +71,7 @@ Baseline levels are not assigned from language trivia or self-reported framework
 | Module | Status | Passed lessons | Notes |
 |---|---|---:|---|
 | 00 Orientation and toolchain | Passed | 3/3 | Native hosts traced; Desktop Hot Reload established |
-| 01 Kotlin through the domain | In progress | 1/6 | Values, inference, and derived expressions implemented visibly |
+| 01 Kotlin through the domain | In progress | 2/6 | Visible values, pure formatters, named arguments, and nullable content implemented |
 | 02 Compose foundations | Not started | 0/6 | — |
 | 03 KMP boundaries and resources | Not started | 0/4 | — |
 | 04 Alphabet vertical slice | Not started | 0/5 | — |
@@ -83,28 +83,29 @@ Baseline levels are not assigned from language trivia or self-reported framework
 | 10 Complete alphabet and quality | Not started | 0/5 | — |
 | 11 Release and defense | Not started | 0/4 | — |
 
-Current lesson: `01.02 — Functions, named arguments, and null safety`
+Current lesson: `01.03 — Data classes, value classes, enums, and sealed types`
 
 Published inventory: 9/59 full lesson pages. The remainder of Module 00 and all of Module 01 are ready, so lesson publication is no longer blocking the current or next module.
 
 ### Current lesson record
 
 ```text
-Lesson ID: 01.01
+Lesson ID: 01.02
 Status: Passed
-Date started: 2026-08-19
+Date started: 2026-08-20
 Date passed: 2026-08-20
-Product artifact: Shared starter displays named alphabet counts, derived progress text, and a state-derived button label
-Checks run: Desktop Hot Reload rendered each change; desktop Kotlin compilation succeeded after mechanical cleanup
-Evidence: Correctly distinguished val/var and inferred String/Boolean; implemented local typed values, interpolation, and two value-producing if expressions
-Debugging evidence: Revised top-level mutable declarations into scoped read-only values and explained why a derived val changes visibly across recompositions without reassignment
+Product artifact: Shared starter uses a pure progress formatter and renders Alef/Bet labels with optional sound content
+Checks run: Desktop Hot Reload rendered both null/present branches; desktop Kotlin compilation succeeded
+Evidence: Identified function inputs/output, extracted Compose-independent logic, used named arguments, default parameters, String?, and isNullOrEmpty without !!
+Debugging evidence: Distinguished conceptual call-site ambiguity from mechanical visibility/formatting and compared block versus expression function bodies
 Application checkpoint: Local only; app source was not pushed because the configured GitHub remote remained public
 ```
 
-Most recent passed lesson: `01.01 — Values, variables, types, and expressions` on 2026-08-20.
+Most recent passed lesson: `01.02 — Functions, named arguments, and null safety` on 2026-08-20.
 
 Current task-based evidence:
 
+- Functions and null safety: level 3 — extracts typed pure functions, calls with named arguments, uses a nullable default, and safely handles absent/empty content.
 - Kotlin declarations and expressions: level 3 — implements read-only local values, type inference, interpolation, and state-derived if expressions in the running application.
 - Recomposition reasoning: level 2 — explains that a derived val is initialized again from current observable state rather than reassigned.
 - KMP source sets and boundaries: level 3 — distinguishes packages, modules, source sets, and native hosts; correctly places common domain, Android implementation, Swift entry-point, shared-test, and desktop-development code.
