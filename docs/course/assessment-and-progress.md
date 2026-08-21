@@ -1,6 +1,6 @@
 # Assessment and progress
 
-Status: Lesson 02.01 passed; Lesson 02.02 ready
+Status: Lesson 02.01 in progress — guided LetterCard complete; independent AlphabetHeader pending
 
 Last updated: 2026-08-19
 
@@ -72,7 +72,7 @@ Baseline levels are not assigned from language trivia or self-reported framework
 |---|---|---:|---|
 | 00 Orientation and toolchain | Passed | 3/3 | Native hosts traced; Desktop Hot Reload established |
 | 01 Kotlin through the domain | In progress | 4/6 | Collection foundations demonstrated; repository/mapping and test checkpoint deferred to authentic product boundaries |
-| 02 Compose foundations | In progress | 1/6 | Feature-owned LetterCard and state-driven visibility implemented |
+| 02 Compose foundations | In progress | 0/6 | Guided LetterCard and state-driven visibility work; lesson not passed until independent extraction and teach-back |
 | 03 KMP boundaries and resources | Not started | 0/4 | — |
 | 04 Alphabet vertical slice | Not started | 0/5 | — |
 | 05 Session engine | Not started | 0/6 | — |
@@ -83,32 +83,59 @@ Baseline levels are not assigned from language trivia or self-reported framework
 | 10 Complete alphabet and quality | Not started | 0/5 | — |
 | 11 Release and defense | Not started | 0/4 | — |
 
-Current lesson: `02.02 — Layout, Modifier, theme, and modifier order`
+Current lesson: `02.01 — Composables and recomposition`
 
-Published inventory: 10/59 full lesson pages. Lessons 01.05–01.06 remain published reference material and are deferred until their product boundaries exist.
+Published inventory: 15/59 full lesson pages. The complete Module 02 pack is published before further live instruction. Lessons 01.05–01.06 remain published reference material and are deferred until their product boundaries exist.
 
 ### Current lesson record
 
 ```text
 Lesson ID: 02.01
-Status: Passed
+Status: In progress
 Date started: 2026-08-20
-Date passed: 2026-08-20
-Product artifact: Feature-owned LetterCard renders Aleph, Bet, and Gimel; observable Compose state reveals and hides real letter content
+Date passed: —
+Guided product artifact: Feature-owned LetterCard renders Aleph, Bet, and Gimel; observable Compose state reveals and hides real letter content
 Checks run: Desktop Hot Reload verified the interaction; desktop Kotlin compilation succeeded
-Evidence: Extracted a composable with explicit domain input, explained state-driven recomposition, and distinguished remembered state from recreated ordinary locals
-Debugging evidence: Removed retired template UI/imports and kept derived labels/content out of duplicated mutable state
+Evidence so far: Extracted a composable with explicit domain input and replaced template behavior with real letter visibility
+Evidence still required: Independent AlphabetHeader extraction, recomposition/ownership teach-back, review resolution
+Correction: The lesson was prematurely marked passed after guided work. The course contract requires the independent variation and explanation before passing.
 Application checkpoint: Local only; app source was not pushed because the configured GitHub remote remained public
 ```
 
-Most recent passed lesson: `02.01 — Composables and recomposition` on 2026-08-20.
+Most recent passed lesson: `01.04 — Collections and higher-order functions` on 2026-08-20, passed for progression with advanced operations deferred to product use.
 
 Current task-based evidence:
 
 - Functions and null safety: level 3 — extracts typed pure functions, calls with named arguments, uses a nullable default, and safely handles absent/empty content.
 - Kotlin type modeling: level 3 — implements a domain data class and typed value-class identity, reasons about immutable copying, and chooses enum/sealed/object/class shapes from required product state.
 - Collections: level 3 — uses an ordered read-only letter list, sorting, iteration, and typed lookup reasoning; advanced transformations are deferred for retrieval in real features.
-- Compose components and recomposition: level 3 — extracts feature-owned UI with explicit inputs and explains how observable remembered state drives recomposition while ordinary locals are recreated.
+- Compose components and recomposition: level 2 — guided feature-owned LetterCard and state-driven visibility work; independent component extraction and teach-back remain.
+
+### Fresh-task handoff for Module 02
+
+This conversation reached a module boundary and the delivery style drifted between complete code dumps and unsupported independent work. Continue Module 02 in a fresh task using the published lesson protocol rather than reconstructing the improvised sequence.
+
+Current application state:
+
+- `Letter`, `LetterId`, Aleph, Bet, and Gimel exist locally.
+- `LetterCard` exists in `alphabet/presentation` and renders glyph, Latin name, and optional sounds.
+- `App()` uses remembered observable state to reveal/hide the three cards.
+- Desktop Hot Reload works and desktop Kotlin compilation passes.
+- Application source remains local and must not be pushed while its GitHub remote is public.
+
+Resume point:
+
+1. Read `method.md`, `lesson-template.md`, this assessment, and the complete `02-01` page.
+2. Do not repeat the completed guided `LetterCard` work.
+3. Resume at the `AlphabetHeader` independent task in Lesson 02.01.
+4. Give hints through the numbered assistance ladder; do not reveal the complete production implementation before a real attempt.
+5. Mark 02.01 passed only after the independent component, teach-back, review, and build check are complete.
+
+Recommended fresh-task prompt:
+
+```text
+Continue the Aleph Bet KMP course at Lesson 02.01. Read docs/course/method.md, docs/course/lesson-template.md, docs/course/how-to-take-the-course.md, docs/course/assessment-and-progress.md, and docs/course/lessons/02-01-composables-and-recomposition.md completely. The guided LetterCard work is already complete. Resume at the independent AlphabetHeader task and follow the assistance ladder. Do not give me the complete production solution before my attempt.
+```
 - Kotlin declarations and expressions: level 3 — implements read-only local values, type inference, interpolation, and state-derived if expressions in the running application.
 - Recomposition reasoning: level 2 — explains that a derived val is initialized again from current observable state rather than reassigned.
 - KMP source sets and boundaries: level 3 — distinguishes packages, modules, source sets, and native hosts; correctly places common domain, Android implementation, Swift entry-point, shared-test, and desktop-development code.

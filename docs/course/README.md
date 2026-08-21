@@ -1,6 +1,6 @@
 # Build Aleph Bet V1: a personalized KMP course
 
-Status: Lesson 02.01 passed; 10 of 59 full lesson pages published; Lesson 02.02 ready
+Status: Lesson 02.01 in progress; 15 of 59 full lesson pages published; complete Module 02 pack ready
 
 Last updated: 2026-08-20
 
@@ -44,6 +44,11 @@ Read these in order:
    - [01.06: `kotlin.test` and the Kotlin checkpoint](lessons/01-06-kotlin-test-checkpoint.md)
 8. Module 02 lessons:
    - [02.01: Composables and recomposition](lessons/02-01-composables-and-recomposition.md)
+   - [02.02: Layout, Modifier, theme, and modifier order](lessons/02-02-layout-modifier-theme-order.md)
+   - [02.03: Parameters, callbacks, components, and previews](lessons/02-03-parameters-callbacks-components-previews.md)
+   - [02.04: Remembered state, saveable state, and effects](lessons/02-04-remember-state-saveable-effects.md)
+   - [02.05: Lazy grids, stable keys, RTL, and semantics](lessons/02-05-lazy-grids-keys-rtl-semantics.md)
+   - [02.06: Compose UI checkpoint](lessons/02-06-compose-ui-checkpoint.md)
 
 Supporting product and technical decisions remain in the [product roadmap](../product/alphabet-v1-roadmap.md) and [architecture index](../architecture/README.md).
 
@@ -59,7 +64,7 @@ That estimate is intentionally longer than an eight-hour video. Video runtime ex
 |---|---|---|---|
 | 00 | Orientation and toolchain | Native apps run; Desktop Hot Reload established | Passed — 3/3 |
 | 01 | Kotlin through the alphabet domain | Valid three-letter domain model and tests | In progress — 4/6 passed; repository/tests deferred to real content |
-| 02 | Compose foundations | Hard-coded accessible three-letter explorer | In progress — 1/6 passed |
+| 02 | Compose foundations | Hard-coded accessible three-letter explorer | In progress — 02.01 guided work complete, independent task pending |
 | 03 | KMP boundaries and resources | Real resources load on Android and iOS | Not started |
 | 04 | Alphabet vertical slice | Bundled repository, explorer, and letter detail | Not started |
 | 05 | Learning session engine | Tested lesson queue and exercise transitions | Not started |

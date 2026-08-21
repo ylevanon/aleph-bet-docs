@@ -6,7 +6,7 @@ Last updated: 2026-08-19
 
 ## The short answer
 
-The public repository contains a complete 59-lesson **map** and 9 fully written lesson pages. Module 00 is passed, and the complete six-lesson Module 01 pack is ready.
+The public repository contains a complete 59-lesson **map** and 15 fully written lesson pages. Module 00 is passed, the complete six-lesson Module 01 pack is available, and the complete six-lesson Module 02 pack is ready.
 
 That is intentional, but it should have been stated more clearly. The course uses a rolling publication model so later explanations and exercises can respond to actual evidence instead of guessing the learner's Kotlin level months in advance.
 

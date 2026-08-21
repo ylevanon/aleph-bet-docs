@@ -1,30 +1,102 @@
 # Lesson 02.01 — Composables and recomposition
 
-Status: Passed on 2026-08-20
+Status: In progress — guided LetterCard complete; independent AlphabetHeader pending
 
 Module: 02 — Compose foundations
 
+Estimated focused time: 45–70 minutes
+
 ## Product outcome
 
-The shared application now has its first feature-owned UI component: a reusable `LetterCard` in `alphabet/presentation`. The starter greeting was removed, and observable Compose state now reveals or hides the real Aleph, Bet, and Gimel content.
+The starter UI is split into feature-owned composables. One worked letter card establishes the mechanism; the learner independently extracts the alphabet header without receiving its completed implementation.
 
-## Why the app needed this
+## Learning outcomes
 
-The starter `App()` function directly rendered unrelated text and template content. Before building a grid, the application needs a component boundary for one letter.
+By the end, the learner can:
 
-The boundary chosen in this lesson is:
+- explain what a composable emits and what recomposition updates;
+- pass explicit immutable inputs into a feature composable;
+- distinguish observable remembered state from an ordinary local value;
+- extract a second production composable independently.
+
+## Prerequisites
+
+- Lessons 01.01–01.04 completed at the current progression level.
+- `Letter` and `LetterId` exist in `alphabet/domain`.
+- Aleph, Bet, and Gimel render in the desktop development host.
+
+## Retrieval warm-up
+
+Answer without notes:
+
+1. Why does `LetterCard` receive one `Letter` instead of separate glyph and name strings?
+2. What changes when `bet.copy(sounds = listOf("v"))` runs?
+3. Which source set should contain shared Compose UI?
+
+## Why the app needs this now
+
+`App()` currently owns the whole screen. Before building a grid, the app needs a boundary for one letter and a boundary for the screen header. These boundaries should make required inputs explicit without inventing a ViewModel or repository yet.
+
+## Mental model
+
+A composable function participates in composition:
 
 ```text
-App
-└── LetterCard(letter)
-    ├── glyph
-    ├── Latin name
-    └── authored sounds when present
+current parameters + observed Compose state
+                     ↓
+              composable functions
+                     ↓
+        description of UI for this pass
 ```
 
-`LetterCard` owns how one letter is presented. It does not own where letters come from, which lesson is active, or whether a learner has mastered the letter.
+Initial composition creates the description. When observable state read by that composition changes, Compose schedules relevant work again and updates the composition.
 
-## The first composable
+A composable does not return a persistent Android `View` or iOS `UIView`. Compose may also skip calls whose inputs have not changed, so “the whole function always reruns” is only a beginner approximation.
+
+## React Native bridge
+
+| React Native | Compose | Where the analogy breaks |
+|---|---|---|
+| Function component | `@Composable` function | Compose is compiler/runtime driven; it is not React's virtual DOM. |
+| Props | Function parameters | Kotlin types and default parameters are enforced at compile time. |
+| Local state hook | `remember { mutableStateOf(...) }` | Remembered values live in the Composition, not a JavaScript component closure. |
+| Conditional JSX | Kotlin `if` around composable calls | Kotlin control flow directly changes emitted composition structure. |
+
+## Vocabulary
+
+| Term | Meaning |
+|---|---|
+| Composition | The current tree-like description produced by composable execution. |
+| Initial composition | The first time composables enter that composition. |
+| Recomposition | Updating the composition after relevant observed state changes. |
+| State read | Reading observable Compose state while composing, which records a dependency. |
+| Emit | Call composables that contribute UI; not “return a native view.” |
+
+## Predict before running
+
+Given:
+
+```kotlin
+@Composable
+fun Example(name: String) {
+    Text("Hello, " + name)
+}
+```
+
+Predict:
+
+1. its Kotlin return type;
+2. whether it can be called from an ordinary non-composable function;
+3. what changes if its `name` parameter changes;
+4. whether it owns `name`.
+
+Do not run anything until the prediction is stated.
+
+## Minimal demonstration — one letter card
+
+The coach models one small production case: extracting the existing rendering of a single letter into `alphabet/presentation/LetterCard.kt`.
+
+The complete demonstration is intentionally limited to structure:
 
 ```kotlin
 @Composable
@@ -40,180 +112,156 @@ fun LetterCard(letter: Letter) {
 }
 ```
 
-Important observations:
+Expected checkpoint:
 
-- It is an ordinary Kotlin function marked with `@Composable`.
-- Its input is the domain value it needs to render.
-- It emits Compose UI and therefore does not return a native view object.
-- The optional sound row is derived from the current `Letter`; it is not separately stored UI state.
-- The component contains no repository, Room, audio player, navigation, or ViewModel dependency.
+- Aleph, Bet, and Gimel still display;
+- only Bet shows two sounds;
+- `LetterCard` contains no state, repository, or platform imports.
 
-## What `@Composable` means
+Stop after verifying that output. Styling, modifiers, callbacks, and previews belong to later lessons.
 
-A composable function participates in the Compose runtime. During composition, calling it describes UI nodes that should exist for the current inputs and state.
+## Guided lab — make recomposition visible
 
-This is not a function that constructs and returns a persistent `View`:
+### Step 1 — Replace template behavior
 
-```kotlin
-fun LetterCard(letter: Letter): View
-```
+Use the existing `showContent` state to reveal or hide real letter content instead of the generated greeting.
 
-It is also not accurately described as React's virtual DOM. React knowledge helps with declarative inputs and state-driven rendering, but Compose uses compiler/runtime machinery to track composable calls and observable state reads.
-
-For now, the practical model is:
-
-```text
-current parameters + current observed state
-                    ↓
-             composable functions
-                    ↓
-          UI description for this pass
-```
-
-## Feature ownership
-
-The component lives at:
-
-```text
-shared/src/commonMain/kotlin/
-└── com/ylevanon/alephbet/
-    └── alphabet/
-        └── presentation/
-            └── LetterCard.kt
-```
-
-Why:
-
-- it renders an Alphabet-domain concept;
-- both Android and iOS use it;
-- it is feature UI rather than a generic design-system primitive;
-- moving it into `common` or `components` would erase useful ownership.
-
-Cross-platform placement and feature ownership answer different questions:
-
-- `commonMain`: which platforms can compile this code?
-- `alphabet.presentation`: which product area owns this code?
-
-## Rendering the collection
-
-`App()` calls the component for each current letter:
-
-```kotlin
-letters.forEach { letter ->
-    LetterCard(letter)
-}
-```
-
-This is acceptable for the current three-item non-scrolling demonstration. The real explorer will use a lazy grid with stable keys in Lesson 02.05.
-
-## Observable state and recomposition
-
-The starter state was reused for a product-relevant interaction:
+The coach provides the state mechanism because it already exists:
 
 ```kotlin
 var showContent by remember { mutableStateOf(false) }
 ```
 
-The button changes it:
+The learner decides which UI reads the value and removes the template greeting.
+
+### Step 2 — Derive the label
+
+Keep the button label as a read-only value derived from `showContent`. Do not create a second mutable state variable for it.
+
+### Step 3 — Predict the event sequence
+
+Before clicking, explain:
+
+1. which callback changes state;
+2. which composable code reads that state;
+3. which value `remember` preserves;
+4. which ordinary local values may be created again.
+
+### Step 4 — Check
+
+Use Desktop Hot Reload and click the button twice. Verify both labels and both visibility states. Then run the desktop Kotlin compilation task.
+
+## Independent task — extract AlphabetHeader
+
+Stop reading after the acceptance criteria and implement this before opening hints.
+
+Extract the existing screen title and progress text into a new feature composable named `AlphabetHeader` in the Alphabet presentation package.
+
+### Acceptance criteria
+
+- `AlphabetHeader` accepts the title and progress text as parameters.
+- It emits both pieces of text.
+- It does not read global variables or construct progress text internally.
+- It owns no mutable state.
+- `App()` calls it instead of emitting those two `Text` nodes directly.
+- Existing behavior remains unchanged.
+- The learner chooses parameter names and internal layout.
+- Desktop Hot Reload and compilation succeed.
+
+The production implementation is not shown above this assignment.
+
+## Test and debugging plan
+
+1. First verify the original three letter cards still appear.
+2. Extract `AlphabetHeader` and read any compiler error before requesting a fix.
+3. Confirm that changing the title argument at the call site changes the rendered title.
+4. Confirm the header itself contains no `remember`.
+5. Run desktop Kotlin compilation.
+
+If the compiler reports that a composable can only be invoked from another composable context, first identify which calling function lacks `@Composable`.
+
+## Hint ladder
+
+<details>
+<summary>Hint 1 — Product behavior</summary>
+
+The header needs exactly the two text values currently rendered above the button.
+
+</details>
+
+<details>
+<summary>Hint 2 — Ownership</summary>
+
+`App()` owns the current values. `AlphabetHeader` owns only their presentation.
+
+</details>
+
+<details>
+<summary>Hint 3 — Shape</summary>
+
+Start with a composable function that takes two `String` parameters and contains a small vertical layout.
+
+</details>
+
+<details>
+<summary>Hint 4 — Partial skeleton</summary>
 
 ```kotlin
-Button(onClick = { showContent = !showContent }) {
-    Text(buttonLabel)
+@Composable
+fun AlphabetHeader(
+    /* title parameter */,
+    /* progress parameter */,
+) {
+    Column {
+        /* title */
+        /* progress */
+    }
 }
 ```
 
-The application reads it when deriving the label and deciding whether to emit letter content:
+</details>
 
-```kotlin
-val buttonLabel =
-    if (showContent) "Hide letters" else "Start learning"
+A complete solution is shown only after a real attempt and is followed by a small independent variation.
 
-AnimatedVisibility(showContent) {
-    // LetterCard calls
-}
-```
+## Teach-back
 
-The runtime sequence is:
+Explain:
 
-1. The composable first runs with `showContent == false`.
-2. Reading the observable value registers a dependency for the current composition.
-3. The click callback assigns a new value.
-4. Compose schedules affected composable work.
-5. `App()` describes the UI again using the new value.
-6. `remember` retains the state holder across that recomposition.
-7. `AnimatedVisibility` receives the updated Boolean and emits the letter content.
-
-## `remember` does not preserve everything
-
-The authored `Letter` values and list are currently ordinary local values inside `App()`. They are recreated when that code runs again.
-
-Only the value stored through `remember` is preserved by that call:
-
-```kotlin
-remember { mutableStateOf(false) }
-```
-
-The static alphabet content will leave `App()` when the real bundled content source is introduced. This lesson does not add `remember` around static domain content as a substitute for correct ownership.
-
-## State versus derived values
-
-`showContent` is state because it changes over time and must trigger UI updates.
-
-`buttonLabel` is derived:
-
-```kotlin
-val buttonLabel =
-    if (showContent) "Hide letters" else "Start learning"
-```
-
-It should not become a second mutable state value. Storing both would permit contradictions such as `showContent == true` with a “Start learning” label.
-
-The sound text is derived for the same reason: `Letter.sounds` is already the source of truth.
-
-## Review evidence
-
-The learner:
-
-- created `LetterCard.kt` in the Alphabet presentation package;
-- passed a complete `Letter` rather than loose glyph/name arguments;
-- rendered optional sounds from a read-only list;
-- replaced direct rendering in `App()` with component calls;
-- replaced the template greeting with observable state controlling real letter content;
-- used Desktop Hot Reload to verify the interaction;
-- distinguished remembered state from ordinary local values recreated during recomposition.
-
-The coach removed only mechanical leftovers: unused template imports, retired resource references, and formatting issues.
-
-Desktop Kotlin compilation succeeded.
+1. what `@Composable` changes about a function;
+2. why `LetterCard` and `AlphabetHeader` accept explicit values;
+3. what state caused recomposition in the guided lab;
+4. why the derived label is not separate state;
+5. where the React function-component analogy stops being exact.
 
 ## Exit ticket
 
-1. Why does `LetterCard` accept `Letter` rather than reading global content?
-   - Its dependencies remain explicit, it is independently renderable, and it cannot silently choose a different letter.
+1. Does a composable return a native view?
+2. What causes the letter visibility composition to update?
+3. What does `remember` preserve here?
+4. Who owns the title value: `App()` or `AlphabetHeader`?
+5. Why is the sound label derived rather than stored?
 
-2. Does `LetterCard` return a native view?
-   - No. It emits UI while participating in composition.
+## Review rubric
 
-3. Why does changing `showContent` update the screen?
-   - It is observable Compose state read by the composition; assignment invalidates affected work.
+Passing evidence requires the independent header extraction, correct input ownership, a working state-driven interaction, and an accurate recomposition explanation. Copying only the demonstrated `LetterCard` is guided progress, not yet a passed lesson.
 
-4. Why can `buttonLabel` remain a `val`?
-   - It is derived again from the current state during recomposition, not reassigned in place.
+## Completion evidence
 
-5. Why is `LetterCard` under Alphabet instead of a generic shared-components package?
-   - Reuse across platforms does not make feature-specific UI generic.
+- [x] Guided `LetterCard` renders three letters.
+- [x] Template greeting is replaced by state-driven letter visibility.
+- [x] Desktop compilation passes for the guided checkpoint.
+- [ ] Independent `AlphabetHeader` works.
+- [ ] Learner explains recomposition and ownership.
+- [ ] Review findings are resolved.
+- [ ] Public progress record is updated.
 
-## Completion record
+## Next retrieval
 
-- [x] Feature-owned `LetterCard` exists in `commonMain`.
-- [x] The component takes explicit domain input.
-- [x] Aleph, Bet, and Gimel render through the component.
-- [x] Template greeting UI is removed.
-- [x] Observable state drives real content visibility.
-- [x] Remembered state and recreated local values are distinguished.
-- [x] Desktop Kotlin compilation succeeds.
+Lesson 02.02 revisits both components while introducing layout constraints, Material styling, and modifier order.
 
-## Next lesson
+## References
 
-Lesson 02.02 turns the structural component into an actual card using `Modifier`, spacing, Material theme values, and deliberate modifier order.
+- [Thinking in Compose](https://developer.android.com/develop/ui/compose/mental-model)
+- [Lifecycle of composables](https://developer.android.com/develop/ui/compose/lifecycle)
+- [Compose phases](https://developer.android.com/develop/ui/compose/phases)
 
